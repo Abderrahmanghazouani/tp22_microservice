@@ -1,0 +1,25 @@
+server:
+  port: 8081
+  tomcat:
+    threads:
+      max: 400              # assez de threads pour les tests a 200-500 utilisateurs
+spring:
+  application:
+    name: SERVICE-CLIENT
+  profiles:
+    active: consul          # "consul" pour la partie C2
+  cloud:
+    loadbalancer:
+      cache:
+        enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+spring.cloud.openfeign:
+  client:
+    config:
+      default:
+        connect-timeout: 5000
+        read-timeout: 5000

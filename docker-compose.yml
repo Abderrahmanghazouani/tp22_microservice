@@ -1,0 +1,9 @@
+# Consul en mode developpement (equivalent de "consul agent -dev") - interface : http://localhost:8500
+services:
+  consul:
+    image: hashicorp/consul:1.20
+    container_name: consul
+    command: agent -dev -client=0.0.0.0 -ui
+    ports:
+      - "8500:8500"   # API HTTP + interface web
+      - "8600:8600/udp" # DNS Consul

@@ -1,0 +1,15 @@
+# Mode Consul : enregistrement aupres de l'agent localhost:8500 + health check Actuator, Eureka desactive
+eureka:
+  client:
+    enabled: false
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        register: true
+        prefer-ip-address: true
+        instance-id: ${spring.application.name}:${server.port}
+        health-check-path: /actuator/health
+        health-check-interval: 10s

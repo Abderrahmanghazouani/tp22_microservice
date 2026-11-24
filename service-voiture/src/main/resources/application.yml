@@ -1,0 +1,14 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: SERVICE-VOITURE
+  profiles:
+    active: consul          # changer en "consul" pour la partie C2 (migration)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+voiture:
+  delay-ms: 20              # temps de traitement simule (A1.3)
